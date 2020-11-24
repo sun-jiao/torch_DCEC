@@ -113,5 +113,13 @@ venv.bak/
 # nets
 *.pt
 
-#pycharm
+# pycharm
 .idea/
+
+# running results
+runs/
+reports/
+nets/
+
+# dataset
+dataset/

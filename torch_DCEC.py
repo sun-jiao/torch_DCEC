@@ -46,8 +46,8 @@ if __name__ == "__main__":
     parser.add_argument('--sched_gamma', default=0.1, type=float, help='scheduler gamma for rate update')
     parser.add_argument('--sched_gamma_pretrain', default=0.1, type=float,
                         help='scheduler gamma for rate update - pretrain')
-    parser.add_argument('--epochs', default=1000, type=int, help='clustering epochs')
-    parser.add_argument('--epochs_pretrain', default=300, type=int, help='pretraining epochs')
+    parser.add_argument('--epochs', default=1, type=int, help='clustering epochs') # value should be 1000 in real train
+    parser.add_argument('--epochs_pretrain', default=1, type=int, help='pretraining epochs') # value should be 300 in real train
     parser.add_argument('--printing_frequency', default=10, type=int, help='training stats printing frequency')
     parser.add_argument('--gamma', default=0.1, type=float, help='clustering loss weight')
     parser.add_argument('--update_interval', default=80, type=int, help='update interval for target distribution')
