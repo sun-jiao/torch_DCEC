@@ -82,7 +82,6 @@ def train_model(model, dataloader, criteria, optimizers, schedulers, num_epochs,
         utils.print_both(txt_file, 'Epoch {}/{}'.format(epoch + 1, num_epochs))
         utils.print_both(txt_file,  '-' * 10)
 
-        schedulers[0].step()
         model.train(True)  # Set model to training mode
 
         running_loss = 0.0
@@ -182,6 +181,8 @@ def train_model(model, dataloader, criteria, optimizers, schedulers, num_epochs,
                     writer.add_image('Clustering/Epoch_' + str(epoch + 1).zfill(3) + '/Sample_' + str(img_counter).zfill(2), img)
                     img_counter += 1
 
+        schedulers[0].step()
+
         if finished: break
 
         epoch_loss = running_loss / dataset_size
@@ -237,7 +238,6 @@ def pretraining(model, dataloader, criterion, optimizer, scheduler, num_epochs, 
         utils.print_both(txt_file, 'Pretraining:\tEpoch {}/{}'.format(epoch + 1, num_epochs))
         utils.print_both(txt_file, '-' * 10)
 
-        scheduler.step()
         model.train(True)  # Set model to training mode
 
         running_loss = 0.0
@@ -305,6 +305,8 @@ def pretraining(model, dataloader, criterion, optimizer, scheduler, num_epochs, 
 
         utils.print_both(txt_file, '')
 
+    scheduler.step()
+    
     time_elapsed = time.time() - since
     utils.print_both(txt_file, 'Pretraining complete in {:.0f}m {:.0f}s'.format(
         time_elapsed // 60, time_elapsed % 60))
