@@ -352,9 +352,9 @@ if __name__ == "__main__":
 
     model = model.to(device)
     # Reconstruction loss
-    criterion_1 = nn.MSELoss(size_average=True)
+    criterion_1 = nn.MSELoss(reduction='mean')
     # Clustering loss
-    criterion_2 = nn.KLDivLoss(size_average=False)
+    criterion_2 = nn.KLDivLoss(reduction='sum')
 
     criteria = [criterion_1, criterion_2]
 
