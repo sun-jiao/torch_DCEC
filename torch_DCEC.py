@@ -71,6 +71,7 @@ if __name__ == "__main__":
     # Deal with pretraining option and way of showing network path
     pretrain = args.pretrain
     net_is_path = True
+    idx = 1
     if not pretrain:
         try:
             int(args.pretrained_net)
@@ -96,10 +97,6 @@ if __name__ == "__main__":
                 if fnmatch.fnmatch(file, model_name + '*'):
                     idx = int(str(file)[-7:-4]) + 1
                     break
-        try:
-            idx
-        except NameError:
-            idx = 1
 
     # Base filename
     name = model_name + '_' + str(idx).zfill(3)
